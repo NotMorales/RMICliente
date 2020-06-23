@@ -22,6 +22,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
     public PanelVerProductos() {
         initComponents();
         refrescarTabla();
+        
     }
     
     public void refrescarTabla(){
@@ -95,19 +96,51 @@ public class PanelVerProductos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        productosTable = new javax.swing.JTable();
-        columnasComboBox = new javax.swing.JComboBox<>();
-        buscarTextField = new javax.swing.JTextField();
-        buscarButton = new javax.swing.JButton();
-        eliminarButton = new javax.swing.JButton();
-        modificarButton = new javax.swing.JButton();
-        agregarButton = new javax.swing.JButton();
+        columnasComboBox = new RSMaterialComponent.RSComboBoxMaterial();
+        buscarTextField = new RSMaterialComponent.RSTextFieldMaterial();
+        buscarButton = new RSMaterialComponent.RSButtonIconTwo();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        productosTable = new RSMaterialComponent.RSTableMetro();
+        agregarButton = new RSMaterialComponent.RSButtonMaterialIconTwo();
+        rSButtonMaterialIconTwo1 = new RSMaterialComponent.RSButtonMaterialIconTwo();
+        rSButtonMaterialIconTwo2 = new RSMaterialComponent.RSButtonMaterialIconTwo();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setName("PanelVerProductos"); // NOI18N
         setOpaque(false);
 
-        productosTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        columnasComboBox.setBorder(null);
+        columnasComboBox.setForeground(new java.awt.Color(51, 51, 51));
+        columnasComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "codigo", "marca", "nombre", "precio" }));
+        columnasComboBox.setColorMaterial(new java.awt.Color(100, 181, 246));
+        columnasComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                columnasComboBoxItemStateChanged(evt);
+            }
+        });
+        columnasComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                columnasComboBoxFocusLost(evt);
+            }
+        });
+
+        buscarTextField.setForeground(new java.awt.Color(0, 0, 0));
+        buscarTextField.setColorMaterial(new java.awt.Color(100, 181, 246));
+        buscarTextField.setMinimumSize(new java.awt.Dimension(6, 18));
+        buscarTextField.setPhColor(new java.awt.Color(100, 181, 246));
+        buscarTextField.setPlaceholder("Buscar por codigo");
+        buscarTextField.setSelectionColor(new java.awt.Color(100, 181, 246));
+
+        buscarButton.setBackground(new java.awt.Color(100, 181, 246));
+        buscarButton.setBackgroundHover(new java.awt.Color(100, 164, 253));
+        buscarButton.setIconTextGap(3);
+        buscarButton.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.SEARCH);
+        buscarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarButtonActionPerformed(evt);
+            }
+        });
+
         productosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -119,47 +152,41 @@ public class PanelVerProductos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(productosTable);
+        productosTable.setBackgoundHead(new java.awt.Color(100, 164, 253));
+        productosTable.setBackgoundHover(new java.awt.Color(100, 164, 253));
+        productosTable.setColorBorderHead(new java.awt.Color(255, 255, 255));
+        productosTable.setColorBorderRows(new java.awt.Color(255, 255, 255));
+        productosTable.setColorPrimaryText(new java.awt.Color(102, 102, 102));
+        productosTable.setColorSecundaryText(new java.awt.Color(102, 102, 102));
+        jScrollPane2.setViewportView(productosTable);
 
-        columnasComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        columnasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "codigo", "marca", "nombre", "precio" }));
-        columnasComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                columnasComboBoxActionPerformed(evt);
-            }
-        });
-
-        buscarTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        buscarButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        buscarButton.setText("Buscar");
-        buscarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarButtonActionPerformed(evt);
-            }
-        });
-
-        eliminarButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        eliminarButton.setText("Eliminar");
-        eliminarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarButtonActionPerformed(evt);
-            }
-        });
-
-        modificarButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        modificarButton.setText("Modificar");
-        modificarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarButtonActionPerformed(evt);
-            }
-        });
-
-        agregarButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        agregarButton.setBackground(new java.awt.Color(100, 181, 246));
         agregarButton.setText("Agregar");
+        agregarButton.setBackgroundHover(new java.awt.Color(100, 164, 247));
+        agregarButton.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD);
         agregarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarButtonActionPerformed(evt);
+            }
+        });
+
+        rSButtonMaterialIconTwo1.setBackground(new java.awt.Color(100, 181, 246));
+        rSButtonMaterialIconTwo1.setText("Modificar");
+        rSButtonMaterialIconTwo1.setBackgroundHover(new java.awt.Color(100, 163, 255));
+        rSButtonMaterialIconTwo1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.SETTINGS_APPLICATIONS);
+        rSButtonMaterialIconTwo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonMaterialIconTwo1ActionPerformed(evt);
+            }
+        });
+
+        rSButtonMaterialIconTwo2.setBackground(new java.awt.Color(255, 153, 153));
+        rSButtonMaterialIconTwo2.setText("Eliminar");
+        rSButtonMaterialIconTwo2.setBackgroundHover(new java.awt.Color(255, 51, 51));
+        rSButtonMaterialIconTwo2.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
+        rSButtonMaterialIconTwo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonMaterialIconTwo2ActionPerformed(evt);
             }
         });
 
@@ -170,49 +197,60 @@ public class PanelVerProductos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(columnasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(columnasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buscarTextField)
+                        .addComponent(buscarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buscarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(agregarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buscarButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(agregarButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(modificarButton)
+                        .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(eliminarButton)))
+                        .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(columnasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(buscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(columnasComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(eliminarButton)
-                    .addComponent(modificarButton)
-                    .addComponent(agregarButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(agregarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void columnasComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_columnasComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_columnasComboBoxActionPerformed
+    private void columnasComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_columnasComboBoxFocusLost
+        
+    }//GEN-LAST:event_columnasComboBoxFocusLost
+
+    private void columnasComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_columnasComboBoxItemStateChanged
+        buscarTextField.setPlaceholder("Buscar por " + columnasComboBox.getSelectedItem().toString());
+    }//GEN-LAST:event_columnasComboBoxItemStateChanged
 
     private void buscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarButtonActionPerformed
         refrescarTabla();
     }//GEN-LAST:event_buscarButtonActionPerformed
 
-    private void modificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarButtonActionPerformed
+    private void agregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarButtonActionPerformed
+        DialogAgregarProducto dialogAgregarPersona = new DialogAgregarProducto(null, true);
+        dialogAgregarPersona.setLocationRelativeTo(this);
+        dialogAgregarPersona.setVisible(true);
+        refrescarTabla();
+    }//GEN-LAST:event_agregarButtonActionPerformed
+
+    private void rSButtonMaterialIconTwo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMaterialIconTwo1ActionPerformed
         try {
             int filaSeleccionada = productosTable.getSelectedRow();
             if( filaSeleccionada == -1 ){
@@ -241,9 +279,9 @@ public class PanelVerProductos extends javax.swing.JPanel {
         } catch (RemoteException ex) {
             Logger.getLogger(PanelVerProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_modificarButtonActionPerformed
+    }//GEN-LAST:event_rSButtonMaterialIconTwo1ActionPerformed
 
-    private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
+    private void rSButtonMaterialIconTwo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMaterialIconTwo2ActionPerformed
         try {
             int filaSeleccionada = productosTable.getSelectedRow();
             if( filaSeleccionada == -1 ){
@@ -287,24 +325,17 @@ public class PanelVerProductos extends javax.swing.JPanel {
         } catch (RemoteException ex) {
             Logger.getLogger(PanelVerProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_eliminarButtonActionPerformed
-
-    private void agregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarButtonActionPerformed
-        DialogAgregarProducto dialogAgregarPersona = new DialogAgregarProducto(null, true);
-        dialogAgregarPersona.setLocationRelativeTo(this);
-        dialogAgregarPersona.setVisible(true);
-        refrescarTabla();
-    }//GEN-LAST:event_agregarButtonActionPerformed
+    }//GEN-LAST:event_rSButtonMaterialIconTwo2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregarButton;
-    private javax.swing.JButton buscarButton;
-    private javax.swing.JTextField buscarTextField;
-    private javax.swing.JComboBox<String> columnasComboBox;
-    private javax.swing.JButton eliminarButton;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton modificarButton;
-    private javax.swing.JTable productosTable;
+    private RSMaterialComponent.RSButtonMaterialIconTwo agregarButton;
+    private RSMaterialComponent.RSButtonIconTwo buscarButton;
+    private RSMaterialComponent.RSTextFieldMaterial buscarTextField;
+    private RSMaterialComponent.RSComboBoxMaterial columnasComboBox;
+    private javax.swing.JScrollPane jScrollPane2;
+    private RSMaterialComponent.RSTableMetro productosTable;
+    private RSMaterialComponent.RSButtonMaterialIconTwo rSButtonMaterialIconTwo1;
+    private RSMaterialComponent.RSButtonMaterialIconTwo rSButtonMaterialIconTwo2;
     // End of variables declaration//GEN-END:variables
 }
