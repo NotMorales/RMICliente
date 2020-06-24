@@ -20,9 +20,9 @@ public class PanelVerVentas extends javax.swing.JPanel {
         rSTextFieldTwo1 = new RSMaterialComponent.RSTextFieldTwo();
         jScrollPane1 = new javax.swing.JScrollPane();
         rSTableMetro1 = new RSMaterialComponent.RSTableMetro();
-        rSButtonShape1 = new RSMaterialComponent.RSButtonShape();
-        rSButtonShape2 = new RSMaterialComponent.RSButtonShape();
         rSButtonIconTwo1 = new RSMaterialComponent.RSButtonIconTwo();
+        rSButtonMaterialIconTwo1 = new RSMaterialComponent.RSButtonMaterialIconTwo();
+        rSButtonMaterialIconTwo2 = new RSMaterialComponent.RSButtonMaterialIconTwo();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setName("PanelVerVentas"); // NOI18N
@@ -52,15 +52,21 @@ public class PanelVerVentas extends javax.swing.JPanel {
         rSTableMetro1.setColorBorderRows(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(rSTableMetro1);
 
-        rSButtonShape1.setBackground(new java.awt.Color(255, 102, 102));
-        rSButtonShape1.setText("Cancelar Venta");
-
-        rSButtonShape2.setBackground(new java.awt.Color(100, 181, 246));
-        rSButtonShape2.setText("Agregar Venta");
-
         rSButtonIconTwo1.setBackground(new java.awt.Color(100, 181, 246));
         rSButtonIconTwo1.setBackgroundHover(new java.awt.Color(100, 166, 249));
         rSButtonIconTwo1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.SEARCH);
+
+        rSButtonMaterialIconTwo1.setBackground(new java.awt.Color(100, 181, 246));
+        rSButtonMaterialIconTwo1.setText("Agregar Venta");
+        rSButtonMaterialIconTwo1.setBackgroundHover(new java.awt.Color(100, 163, 249));
+        rSButtonMaterialIconTwo1.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
+        rSButtonMaterialIconTwo1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD);
+
+        rSButtonMaterialIconTwo2.setBackground(new java.awt.Color(255, 102, 102));
+        rSButtonMaterialIconTwo2.setText("Cancelar Venta");
+        rSButtonMaterialIconTwo2.setBackgroundHover(new java.awt.Color(211, 102, 102));
+        rSButtonMaterialIconTwo2.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
+        rSButtonMaterialIconTwo2.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CANCEL);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,20 +75,17 @@ public class PanelVerVentas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rSButtonShape2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rSButtonShape1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(rSTextFieldTwo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(rSButtonIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rSTextFieldTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rSButtonIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                        .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,11 +96,11 @@ public class PanelVerVentas extends javax.swing.JPanel {
                     .addComponent(rSButtonIconTwo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(rSButtonShape2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rSButtonShape1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
         rSTextFieldTwo1.getAccessibleContext().setAccessibleDescription("Ingresa un folio");
@@ -107,8 +110,8 @@ public class PanelVerVentas extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private RSMaterialComponent.RSButtonIconTwo rSButtonIconTwo1;
-    private RSMaterialComponent.RSButtonShape rSButtonShape1;
-    private RSMaterialComponent.RSButtonShape rSButtonShape2;
+    private RSMaterialComponent.RSButtonMaterialIconTwo rSButtonMaterialIconTwo1;
+    private RSMaterialComponent.RSButtonMaterialIconTwo rSButtonMaterialIconTwo2;
     private RSMaterialComponent.RSTableMetro rSTableMetro1;
     private RSMaterialComponent.RSTextFieldTwo rSTextFieldTwo1;
     // End of variables declaration//GEN-END:variables

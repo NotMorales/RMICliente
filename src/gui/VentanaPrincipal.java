@@ -60,6 +60,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnProductos.setBackground(new java.awt.Color(100, 181, 246));
         btnProductos.setText("Productos");
         btnProductos.setBackgroundHover(new java.awt.Color(99, 164, 255));
+        btnProductos.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         btnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductosActionPerformed(evt);
@@ -69,6 +70,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnVenta.setBackground(new java.awt.Color(100, 181, 246));
         btnVenta.setText("Venta");
         btnVenta.setBackgroundHover(new java.awt.Color(99, 164, 255));
+        btnVenta.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         btnVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVentaActionPerformed(evt);
@@ -78,6 +80,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnReportes.setBackground(new java.awt.Color(100, 181, 246));
         btnReportes.setText("Reportes");
         btnReportes.setBackgroundHover(new java.awt.Color(99, 164, 255));
+        btnReportes.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         btnReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportesActionPerformed(evt);

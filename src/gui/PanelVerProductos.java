@@ -59,7 +59,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
                     } catch ( NumberFormatException ex ) {
                         JOptionPane.showMessageDialog(
                                 this, 
-                                "Se requiere un valor numerico.", 
+                                "Se requiere un valor númerico.", 
                                 "Numero requerido",
                                 JOptionPane.ERROR_MESSAGE
                         );
@@ -152,8 +152,8 @@ public class PanelVerProductos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        productosTable.setBackgoundHead(new java.awt.Color(100, 164, 253));
-        productosTable.setBackgoundHover(new java.awt.Color(100, 164, 253));
+        productosTable.setBackgoundHead(new java.awt.Color(100, 181, 246));
+        productosTable.setBackgoundHover(new java.awt.Color(100, 181, 246));
         productosTable.setColorBorderHead(new java.awt.Color(255, 255, 255));
         productosTable.setColorBorderRows(new java.awt.Color(255, 255, 255));
         productosTable.setColorPrimaryText(new java.awt.Color(102, 102, 102));
@@ -163,6 +163,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
         agregarButton.setBackground(new java.awt.Color(100, 181, 246));
         agregarButton.setText("Agregar");
         agregarButton.setBackgroundHover(new java.awt.Color(100, 164, 247));
+        agregarButton.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         agregarButton.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD);
         agregarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +174,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
         rSButtonMaterialIconTwo1.setBackground(new java.awt.Color(100, 181, 246));
         rSButtonMaterialIconTwo1.setText("Modificar");
         rSButtonMaterialIconTwo1.setBackgroundHover(new java.awt.Color(100, 163, 255));
+        rSButtonMaterialIconTwo1.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         rSButtonMaterialIconTwo1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.SETTINGS_APPLICATIONS);
         rSButtonMaterialIconTwo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +185,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
         rSButtonMaterialIconTwo2.setBackground(new java.awt.Color(255, 153, 153));
         rSButtonMaterialIconTwo2.setText("Eliminar");
         rSButtonMaterialIconTwo2.setBackgroundHover(new java.awt.Color(255, 51, 51));
+        rSButtonMaterialIconTwo2.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         rSButtonMaterialIconTwo2.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
         rSButtonMaterialIconTwo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,33 +203,34 @@ public class PanelVerProductos extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(columnasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buscarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buscarTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buscarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .addComponent(buscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(agregarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2))
+                        .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(buscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(columnasComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agregarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(buscarTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(columnasComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(agregarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -261,9 +265,9 @@ public class PanelVerProductos extends javax.swing.JPanel {
             IProducto producto = RMI.getIProductoController().findOne( idProducto );
             if( producto.getProductoId() == 0 ){
                 JOptionPane.showMessageDialog(this, 
-                        "Producto no encontrada\n"
+                        "Producto no encontrado\n"
                                 + "Es probable que el producto haya sido eliminada previamente.", 
-                        "Producto no encontrada.",
+                        "Producto no encontrado.",
                         JOptionPane.ERROR_MESSAGE);
                 refrescarTabla();
                 return;
@@ -289,7 +293,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
             }
             
             int confirmacion = JOptionPane.showConfirmDialog(this, 
-                    "Usted esta apunto de eliminar un producto.\n"
+                    "Usted está apunto de eliminar un producto.\n"
                             + "¿Desea continuar?",
                     "Eliminar producto",
                     JOptionPane.YES_NO_OPTION);
@@ -303,16 +307,16 @@ public class PanelVerProductos extends javax.swing.JPanel {
             if( respuesta == IProductoController.DELETE_EXITO ){
                 JOptionPane.showMessageDialog(
                         this,
-                        "producto eliminado con exito.",
+                        "Producto eliminado con exito.",
                         "Operacion exitosa",
                         JOptionPane.INFORMATION_MESSAGE);
                 refrescarTabla();
             }else if( respuesta == IProductoController.DELETE_ID_INEXISTENTE ){
                 JOptionPane.showMessageDialog(
                         this,
-                        "producto no encontrada\n"
+                        "Producto no encontrada\n"
                                 + "Es posible que el producto haya sido eliminado previamente.",
-                        "producto no encontrada",
+                        "Producto no encontrado.",
                         JOptionPane.ERROR_MESSAGE);
             }else {
                 JOptionPane.showMessageDialog(

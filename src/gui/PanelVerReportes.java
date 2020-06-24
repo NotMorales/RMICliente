@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
-/**
- *
- * @author luis2
- */
+
 public class PanelVerReportes extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelVerReportes
-     */
     public PanelVerReportes() {
         initComponents();
+        
     }
 
     /**
@@ -27,13 +18,67 @@ public class PanelVerReportes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        DateChooserInicial = new newscomponents.RSDateChooser();
+        lblFechaInicio = new javax.swing.JLabel();
+        DateChooserFinal = new newscomponents.RSDateChooser();
+        lblFechaFin = new javax.swing.JLabel();
+        btnGenerarVentas = new RSMaterialComponent.RSButtonMaterialTwo();
+        btnGenerarMonto = new RSMaterialComponent.RSButtonMaterialTwo();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        rSTableMetro1 = new RSMaterialComponent.RSTableMetro();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setName("PanelVerReportes"); // NOI18N
         setPreferredSize(new java.awt.Dimension(541, 357));
 
-        jButton1.setText("jButton1");
+        DateChooserInicial.setBackground(new java.awt.Color(100, 158, 253));
+        DateChooserInicial.setBgColor(new java.awt.Color(100, 181, 246));
+        DateChooserInicial.setFormatDate("dd/MM/yyyy\n");
+
+        lblFechaInicio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblFechaInicio.setText("Fecha inicial:");
+
+        DateChooserFinal.setBackground(new java.awt.Color(100, 158, 253));
+        DateChooserFinal.setBgColor(new java.awt.Color(100, 181, 246));
+        DateChooserFinal.setFormatDate("dd/MM/yyyy\n");
+
+        lblFechaFin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblFechaFin.setText("Fecha final:");
+
+        btnGenerarVentas.setBackground(new java.awt.Color(100, 181, 246));
+        btnGenerarVentas.setText("Generar reporte de ventas");
+        btnGenerarVentas.setToolTipText("");
+        btnGenerarVentas.setBackgroundHover(new java.awt.Color(100, 142, 251));
+        btnGenerarVentas.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
+        btnGenerarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarVentasActionPerformed(evt);
+            }
+        });
+
+        btnGenerarMonto.setBackground(new java.awt.Color(100, 188, 172));
+        btnGenerarMonto.setText("Generar reporte de monto total");
+        btnGenerarMonto.setBackgroundHover(new java.awt.Color(100, 163, 168));
+        btnGenerarMonto.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
+
+        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        rSTableMetro1.setBackgoundHead(new java.awt.Color(100, 181, 246));
+        rSTableMetro1.setBackgoundHover(new java.awt.Color(100, 181, 246));
+        rSTableMetro1.setColorBorderHead(new java.awt.Color(255, 255, 255));
+        rSTableMetro1.setColorBorderRows(new java.awt.Color(255, 255, 255));
+        rSTableMetro1.setColorPrimaryText(new java.awt.Color(51, 51, 51));
+        rSTableMetro1.setColorSecundaryText(new java.awt.Color(51, 51, 51));
+        jScrollPane1.setViewportView(rSTableMetro1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -41,20 +86,58 @@ public class PanelVerReportes extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnGenerarVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGenerarMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFechaInicio))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DateChooserInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DateChooserFinal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DateChooserInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lblFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DateChooserFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lblFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnGenerarMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
+
+        DateChooserInicial.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGenerarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarVentasActionPerformed
+        System.out.println(DateChooserInicial.getDate());
+    }//GEN-LAST:event_btnGenerarVentasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private newscomponents.RSDateChooser DateChooserFinal;
+    private newscomponents.RSDateChooser DateChooserInicial;
+    private RSMaterialComponent.RSButtonMaterialTwo btnGenerarMonto;
+    private RSMaterialComponent.RSButtonMaterialTwo btnGenerarVentas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFechaFin;
+    private javax.swing.JLabel lblFechaInicio;
+    private RSMaterialComponent.RSTableMetro rSTableMetro1;
     // End of variables declaration//GEN-END:variables
 }

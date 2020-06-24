@@ -29,18 +29,18 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="columnasComboBox" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="buscarTextField" min="-2" pref="303" max="-2" attributes="0"/>
+                      <Component id="buscarTextField" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buscarButton" pref="137" max="32767" attributes="0"/>
+                      <Component id="buscarButton" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="agregarButton" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="rSButtonMaterialIconTwo1" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="rSButtonMaterialIconTwo2" min="-2" pref="144" max="-2" attributes="0"/>
+                      <Component id="rSButtonMaterialIconTwo2" min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane2" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="573" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -50,18 +50,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="buscarButton" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="buscarTextField" alignment="1" pref="0" max="32767" attributes="0"/>
-                  <Component id="columnasComboBox" alignment="1" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="buscarButton" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="buscarTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="columnasComboBox" alignment="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="241" max="32767" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rSButtonMaterialIconTwo1" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                  <Component id="rSButtonMaterialIconTwo2" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="agregarButton" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="294" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="rSButtonMaterialIconTwo2" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="agregarButton" max="32767" attributes="0"/>
+                  <Component id="rSButtonMaterialIconTwo1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -149,10 +151,10 @@
               </Table>
             </Property>
             <Property name="backgoundHead" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fd" green="a4" red="64" type="rgb"/>
+              <Color blue="f6" green="b5" red="64" type="rgb"/>
             </Property>
             <Property name="backgoundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fd" green="a4" red="64" type="rgb"/>
+              <Color blue="f6" green="b5" red="64" type="rgb"/>
             </Property>
             <Property name="colorBorderHead" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -179,6 +181,9 @@
         <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f7" green="a4" red="64" type="rgb"/>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto Bold" size="16" style="1"/>
+        </Property>
         <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
           <Value id="ADD"/>
         </Property>
@@ -196,6 +201,9 @@
         <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="a3" red="64" type="rgb"/>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto Bold" size="16" style="1"/>
+        </Property>
         <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
           <Value id="SETTINGS_APPLICATIONS"/>
         </Property>
@@ -212,6 +220,9 @@
         <Property name="text" type="java.lang.String" value="Eliminar"/>
         <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto Bold" size="16" style="1"/>
         </Property>
         <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
           <Value id="DELETE"/>

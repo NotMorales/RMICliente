@@ -21,45 +21,46 @@ public class PanelAgregarProducto extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CodigoTextField = new javax.swing.JTextField();
-        marcaTextField = new javax.swing.JTextField();
-        nombreTextField = new javax.swing.JTextField();
-        codigoLabel = new javax.swing.JLabel();
-        marcaLabel = new javax.swing.JLabel();
-        nombreLabel = new javax.swing.JLabel();
-        aceptarButton = new javax.swing.JButton();
-        preciolLabel = new javax.swing.JLabel();
-        precioTextField = new javax.swing.JTextField();
+        CodigoTextField = new RSMaterialComponent.RSTextFieldMaterial();
+        marcaTextField = new RSMaterialComponent.RSTextFieldMaterial();
+        nombreTextField = new RSMaterialComponent.RSTextFieldMaterial();
+        precioTextField = new RSMaterialComponent.RSTextFieldMaterial();
+        rSButtonMaterialOne1 = new RSMaterialComponent.RSButtonMaterialOne();
 
         setOpaque(false);
 
-        CodigoTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        CodigoTextField.setForeground(new java.awt.Color(51, 51, 51));
+        CodigoTextField.setToolTipText("Ingrese un codigo identificador");
+        CodigoTextField.setColorMaterial(new java.awt.Color(100, 181, 246));
+        CodigoTextField.setPhColor(new java.awt.Color(100, 181, 246));
+        CodigoTextField.setPlaceholder("Codigo");
 
-        marcaTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        marcaTextField.setForeground(new java.awt.Color(51, 51, 51));
+        marcaTextField.setToolTipText("Ingresa una marca");
+        marcaTextField.setColorMaterial(new java.awt.Color(100, 181, 246));
+        marcaTextField.setPhColor(new java.awt.Color(100, 181, 246));
+        marcaTextField.setPlaceholder("Marca");
 
-        nombreTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nombreTextField.setForeground(new java.awt.Color(51, 51, 51));
+        nombreTextField.setToolTipText("Ingresa un nombre");
+        nombreTextField.setColorMaterial(new java.awt.Color(100, 181, 246));
+        nombreTextField.setPhColor(new java.awt.Color(100, 181, 246));
+        nombreTextField.setPlaceholder("Nombre");
 
-        codigoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        codigoLabel.setText("Codigo:");
+        precioTextField.setForeground(new java.awt.Color(51, 51, 51));
+        precioTextField.setToolTipText("Ingresa una cantidad");
+        precioTextField.setColorMaterial(new java.awt.Color(100, 181, 246));
+        precioTextField.setPhColor(new java.awt.Color(100, 181, 246));
+        precioTextField.setPlaceholder("Precio");
 
-        marcaLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        marcaLabel.setText("Marca:");
-
-        nombreLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        nombreLabel.setText("Nombre:");
-
-        aceptarButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        aceptarButton.setText("Aceptar");
-        aceptarButton.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonMaterialOne1.setBackground(new java.awt.Color(100, 181, 246));
+        rSButtonMaterialOne1.setText("Aceptar");
+        rSButtonMaterialOne1.setBackgroundHover(new java.awt.Color(100, 163, 252));
+        rSButtonMaterialOne1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aceptarButtonActionPerformed(evt);
+                rSButtonMaterialOne1ActionPerformed(evt);
             }
         });
-
-        preciolLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        preciolLabel.setText("Precio:");
-
-        precioTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -68,49 +69,31 @@ public class PanelAgregarProducto extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(aceptarButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(preciolLabel)
-                            .addComponent(nombreLabel)
-                            .addComponent(marcaLabel)
-                            .addComponent(codigoLabel))
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CodigoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                            .addComponent(marcaTextField)
-                            .addComponent(nombreTextField)
-                            .addComponent(precioTextField))))
+                    .addComponent(rSButtonMaterialOne1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CodigoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+                    .addComponent(marcaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nombreTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(precioTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CodigoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codigoLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(marcaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(marcaLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(precioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(preciolLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(aceptarButton)
+                .addComponent(CodigoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(marcaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(precioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(rSButtonMaterialOne1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarButtonActionPerformed
+    private void rSButtonMaterialOne1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMaterialOne1ActionPerformed
         try {
             String codigo = CodigoTextField.getText();
             String marca = marcaTextField.getText();
@@ -206,18 +189,14 @@ public class PanelAgregarProducto extends javax.swing.JPanel {
         } catch (RemoteException ex) {
             Logger.getLogger(PanelAgregarProducto.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_aceptarButtonActionPerformed
+    }//GEN-LAST:event_rSButtonMaterialOne1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CodigoTextField;
-    private javax.swing.JButton aceptarButton;
-    private javax.swing.JLabel codigoLabel;
-    private javax.swing.JLabel marcaLabel;
-    private javax.swing.JTextField marcaTextField;
-    private javax.swing.JLabel nombreLabel;
-    private javax.swing.JTextField nombreTextField;
-    private javax.swing.JTextField precioTextField;
-    private javax.swing.JLabel preciolLabel;
+    private RSMaterialComponent.RSTextFieldMaterial CodigoTextField;
+    private RSMaterialComponent.RSTextFieldMaterial marcaTextField;
+    private RSMaterialComponent.RSTextFieldMaterial nombreTextField;
+    private RSMaterialComponent.RSTextFieldMaterial precioTextField;
+    private RSMaterialComponent.RSButtonMaterialOne rSButtonMaterialOne1;
     // End of variables declaration//GEN-END:variables
 }
