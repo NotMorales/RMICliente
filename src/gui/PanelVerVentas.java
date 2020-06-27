@@ -151,9 +151,9 @@ public class PanelVerVentas extends javax.swing.JPanel {
     }//GEN-LAST:event_rSButtonIconTwo1ActionPerformed
 
     private void rSButtonMaterialIconTwo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMaterialIconTwo1ActionPerformed
-        /*DialogAgregarVenta dialogAgregarVenta = new DialogAgregarVenta(null, true);
-        dialogAgregarVenta.setLocationRelativeTo(null);
-        dialogAgregarVenta.setVisible(true);*/
+        DialogAgregarVenta dialogAgregarVenta = new DialogAgregarVenta(null, true);
+        dialogAgregarVenta.setLocationRelativeTo(this);
+        dialogAgregarVenta.setVisible(true);
         
     }//GEN-LAST:event_rSButtonMaterialIconTwo1ActionPerformed
 

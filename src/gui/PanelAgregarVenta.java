@@ -1,17 +1,15 @@
 
 package gui;
 
-import java.rmi.RemoteException;
 import javax.swing.JDialog;
 
 public class PanelAgregarVenta extends javax.swing.JPanel {
 
-    private JDialog jdialog;
-    public PanelAgregarVenta(JDialog jdialog) throws RemoteException {
+    private JDialog dialogParent;
+    public PanelAgregarVenta(JDialog dialogParent){
         initComponents();
-        this.jdialog = jdialog;
+        this.dialogParent = dialogParent;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
