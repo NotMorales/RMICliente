@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 public class DialogModificarProducto extends javax.swing.JDialog {
 
     public DialogModificarProducto(java.awt.Frame parent, boolean modal, IProducto producto) throws RemoteException {
-        super(parent, modal);
+        super(parent, modal);   
         initComponents();
         getContentPane().add( new PanelModificarProducto(this, producto) );
     }
