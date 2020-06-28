@@ -13,7 +13,7 @@ public class DialogAgregarVenta extends javax.swing.JDialog {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(450, 550));
+        setMinimumSize(new java.awt.Dimension(626, 474));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

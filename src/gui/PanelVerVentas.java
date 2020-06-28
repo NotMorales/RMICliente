@@ -12,7 +12,7 @@ import proyectormicliente.RMI;
 
 
 public class PanelVerVentas extends javax.swing.JPanel {
-
+    
     public PanelVerVentas() {
         initComponents();
     }
