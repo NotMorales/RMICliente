@@ -209,6 +209,11 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
         inputContador.setText("0");
         inputContador.setEnabled(false);
         inputContador.setFocusable(false);
+        inputContador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputContadorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -380,6 +385,10 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCrearVentaActionPerformed
 
+    private void inputContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputContadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputContadorActionPerformed
+
     public int setDetalleVenta(IVenta venta){
         int respuesta = 0;
         try {
@@ -390,7 +399,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
             detalle.setVentaId(VENTAID);
             detalle.setUnidades(CONTADOR);
             detalle.setPrecioUnidad(PRODUCTO.getPrecio());
-            detalle.setTotal(TOTAL);
+            detalle.setTotal(SUBTOTAL);
             
             respuesta = RMI.getIDetalleVentaController().add(detalle);
             
@@ -424,13 +433,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
             int productoID = (Integer) tablaProductos.getValueAt(filaSelec, 0);
             PRODUCTO = RMI.getIProductoController().findOne(productoID);
             
-            SUBTOTAL = PRODUCTO.getPrecio();
-            IVA = SUBTOTAL * 0.16;
-            TOTAL = SUBTOTAL + IVA;
-            
-            inputSubtotal.setText(df.format(SUBTOTAL));
-            inputIVA.setText(df.format(IVA));
-            inputTOTAL.setText(df.format(TOTAL));
+            actualizarPrecios();
         } catch (RemoteException ex) {
             Logger.getLogger(PanelAgregarVenta.class.getName()).log(Level.SEVERE, null, ex);
         }

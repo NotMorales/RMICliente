@@ -1,6 +1,7 @@
 
 package gui;
 
+import Interfaces.IProducto;
 import Interfaces.IVenta;
 import Interfaces.IVentaController;
 import java.rmi.RemoteException;
@@ -19,6 +20,7 @@ public class PanelVerVentas extends javax.swing.JPanel {
     public PanelVerVentas() {
         initComponents();
         refrescarTabla();
+        
     }
     
     private String devolverEstado(int estado){
@@ -71,6 +73,11 @@ public class PanelVerVentas extends javax.swing.JPanel {
             columnas.add("Fecha");
             columnas.add("Estado");
             tablaVentas.setModel( new DefaultTableModel( datos, columnas ) );
+            tablaVentas.getColumnModel().getColumn(0).setMaxWidth(0);
+            tablaVentas.getColumnModel().getColumn(0).setMinWidth(0);
+            tablaVentas.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+            tablaVentas.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+            tablaVentas.getColumnModel().getColumn(0).setResizable(false);
         } catch (Exception e) {
         }
     }
@@ -84,6 +91,7 @@ public class PanelVerVentas extends javax.swing.JPanel {
         rSButtonIconTwo1 = new RSMaterialComponent.RSButtonIconTwo();
         rSButtonMaterialIconTwo1 = new RSMaterialComponent.RSButtonMaterialIconTwo();
         btnCancelarVenta = new RSMaterialComponent.RSButtonMaterialIconTwo();
+        btnMostrarVenta = new RSMaterialComponent.RSButtonMaterialIconTwo();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setName("PanelVerVentas"); // NOI18N
@@ -144,6 +152,17 @@ public class PanelVerVentas extends javax.swing.JPanel {
             }
         });
 
+        btnMostrarVenta.setBackground(new java.awt.Color(51, 255, 51));
+        btnMostrarVenta.setText("Mostar Venta");
+        btnMostrarVenta.setBackgroundHover(new java.awt.Color(211, 102, 102));
+        btnMostrarVenta.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
+        btnMostrarVenta.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.SHOP);
+        btnMostrarVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarVentaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,16 +170,18 @@ public class PanelVerVentas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(inputBuscarFolio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(rSButtonIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancelarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMostrarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -171,11 +192,12 @@ public class PanelVerVentas extends javax.swing.JPanel {
                     .addComponent(inputBuscarFolio, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                     .addComponent(rSButtonIconTwo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancelarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMostrarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -190,7 +212,7 @@ public class PanelVerVentas extends javax.swing.JPanel {
         DialogAgregarVenta dialogAgregarVenta = new DialogAgregarVenta(null, true);
         dialogAgregarVenta.setLocationRelativeTo(this);
         dialogAgregarVenta.setVisible(true);
-        
+        refrescarTabla();
     }//GEN-LAST:event_rSButtonMaterialIconTwo1ActionPerformed
 
     private void btnCancelarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVentaActionPerformed
@@ -251,8 +273,40 @@ public class PanelVerVentas extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCancelarVentaActionPerformed
 
+    private void btnMostrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarVentaActionPerformed
+        try {
+            int filaSeleccionada = tablaVentas.getSelectedRow();
+            if( filaSeleccionada == -1 ){
+                return;
+            }
+            
+            int idVenta = (Integer) tablaVentas.getValueAt(filaSeleccionada, 0);
+            IVenta venta = RMI.getIVentaController().findOne( idVenta );
+            if( venta.getVentaId()== 0 ){
+                JOptionPane.showMessageDialog(this, 
+                        "Venta no encontrado\n"
+                                + "Es probable que la haya sido eliminada previamente.", 
+                        "Venta no encontrado.",
+                        JOptionPane.ERROR_MESSAGE);
+                refrescarTabla();
+                return;
+            }
+            /*
+            DialogModificarProducto dialogModificarProducto = new DialogModificarProducto(null, true, producto);
+            dialogModificarProducto.setLocationRelativeTo(this);
+            dialogModificarProducto.setVisible(true);
+            */
+            //Regrescar tabla
+            refrescarTabla();
+            
+        } catch (RemoteException ex) {
+            Logger.getLogger(PanelVerProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnMostrarVentaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonMaterialIconTwo btnCancelarVenta;
+    private RSMaterialComponent.RSButtonMaterialIconTwo btnMostrarVenta;
     private RSMaterialComponent.RSTextFieldTwo inputBuscarFolio;
     private javax.swing.JScrollPane jScrollPane1;
     private RSMaterialComponent.RSButtonIconTwo rSButtonIconTwo1;

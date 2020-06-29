@@ -21,7 +21,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
     
     public PanelVerProductos() {
         initComponents();
-        refrescarTabla(); 
+        refrescarTabla();
     }
     
     public void refrescarTabla(){
@@ -86,6 +86,11 @@ public class PanelVerProductos extends javax.swing.JPanel {
             columnas.add("Nombre");
             columnas.add("Precio");
             productosTable.setModel( new DefaultTableModel( datos, columnas ) );
+            productosTable.getColumnModel().getColumn(0).setMaxWidth(0);
+            productosTable.getColumnModel().getColumn(0).setMinWidth(0);
+            productosTable.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+            productosTable.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+            productosTable.getColumnModel().getColumn(0).setResizable(false);
         } catch (RemoteException ex) {
             Logger.getLogger(PanelVerProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
