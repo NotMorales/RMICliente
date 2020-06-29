@@ -152,9 +152,9 @@ public class PanelVerVentas extends javax.swing.JPanel {
             }
         });
 
-        btnMostrarVenta.setBackground(new java.awt.Color(51, 255, 51));
+        btnMostrarVenta.setBackground(new java.awt.Color(0, 204, 51));
         btnMostrarVenta.setText("Mostar Venta");
-        btnMostrarVenta.setBackgroundHover(new java.awt.Color(211, 102, 102));
+        btnMostrarVenta.setBackgroundHover(new java.awt.Color(0, 180, 59));
         btnMostrarVenta.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         btnMostrarVenta.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.SHOP);
         btnMostrarVenta.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +170,7 @@ public class PanelVerVentas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(inputBuscarFolio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
