@@ -22,9 +22,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelCentral.add(panelVerVentas);
         panelCentral.add(panelVerReportes);
         paneles = panelCentral.getComponents();
-        for (Component panele : paneles) {
-            System.out.println(panele.getName());
-        }
         
     }
     

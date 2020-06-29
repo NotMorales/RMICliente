@@ -49,7 +49,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnReporteMontoTotal" alignment="1" max="32767" attributes="0"/>
-                          <Component id="rSTextFieldTwo1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="inputMonto" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -75,7 +75,7 @@
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" pref="42" max="32767" attributes="0"/>
-                  <Component id="rSTextFieldTwo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="inputMonto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnReporteMontoTotal" min="-2" max="-2" attributes="0"/>
@@ -183,7 +183,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="RSMaterialComponent.RSTextFieldTwo" name="rSTextFieldTwo1">
+    <Component class="RSMaterialComponent.RSTextFieldTwo" name="inputMonto">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="33" red="0" type="rgb"/>

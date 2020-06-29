@@ -3,8 +3,10 @@ package gui;
 
 import Interfaces.IDetalleVenta;
 import java.rmi.RemoteException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,9 +16,44 @@ import proyectormicliente.RMI;
 
 public class PanelVerReportes extends javax.swing.JPanel {
 
+    private DecimalFormat df = new DecimalFormat("#.00");
     private SimpleDateFormat SDF = new SimpleDateFormat("dd-MM-yyyy");
+    private String[] FECHAS = new String[2];
     public PanelVerReportes() {
         initComponents();
+    }
+    
+    public void setFechas(){
+        FECHAS[0] = SDF.format(DateChooserInicial.getDate());
+        FECHAS[1] = SDF.format(DateChooserFinal.getDate());
+    }
+    
+    public void calcularMonto(){
+        double montoTot = 0;
+        try {
+            montoTot = RMI.getIDetalleVentaController().getMontoTotal(FECHAS);
+            
+            inputMonto.setText( "$ "+ String.valueOf( df.format(montoTot)) );
+        } catch (RemoteException ex) {
+            Logger.getLogger(PanelVerReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void productosVendidos(){
+        List<Map<String,Object>> lista;
+        
+        try {
+            lista = RMI.getIDetalleVentaController().getProductosVendidos(FECHAS);
+            for (Map<String, Object> map : lista) {
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    String key = entry.getKey();
+                    Object value = entry.getValue();
+                    System.out.println(key + " = " + value);
+                }
+            }
+        } catch (RemoteException ex) {
+            Logger.getLogger(PanelVerReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /*public void refrescarTabla(){
@@ -63,7 +100,7 @@ public class PanelVerReportes extends javax.swing.JPanel {
         btnReporteMontoTotal = new RSMaterialComponent.RSButtonMaterialIconTwo();
         jScrollPane1 = new javax.swing.JScrollPane();
         rSTableMetro1 = new RSMaterialComponent.RSTableMetro();
-        rSTextFieldTwo1 = new RSMaterialComponent.RSTextFieldTwo();
+        inputMonto = new RSMaterialComponent.RSTextFieldTwo();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -115,10 +152,10 @@ public class PanelVerReportes extends javax.swing.JPanel {
         rSTableMetro1.setColorSecundaryText(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(rSTableMetro1);
 
-        rSTextFieldTwo1.setForeground(new java.awt.Color(0, 51, 0));
-        rSTextFieldTwo1.setBorderColor(new java.awt.Color(153, 153, 153));
-        rSTextFieldTwo1.setPhColor(new java.awt.Color(153, 153, 153));
-        rSTextFieldTwo1.setPlaceholder("Monto total");
+        inputMonto.setForeground(new java.awt.Color(0, 51, 0));
+        inputMonto.setBorderColor(new java.awt.Color(153, 153, 153));
+        inputMonto.setPhColor(new java.awt.Color(153, 153, 153));
+        inputMonto.setPlaceholder("Monto total");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -146,7 +183,7 @@ public class PanelVerReportes extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnReporteMontoTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rSTextFieldTwo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(inputMonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -165,7 +202,7 @@ public class PanelVerReportes extends javax.swing.JPanel {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(rSTextFieldTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnReporteMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -175,19 +212,20 @@ public class PanelVerReportes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReporteMontoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteMontoTotalActionPerformed
-        //tabla ventas, sumar todas los registros total (segun las fecha)
-        System.out.println( SDF.format(DateChooserInicial.getDate()) );
+        setFechas();
+        calcularMonto();
+        productosVendidos();
     }//GEN-LAST:event_btnReporteMontoTotalActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private newscomponents.RSDateChooser DateChooserFinal;
     private newscomponents.RSDateChooser DateChooserInicial;
     private RSMaterialComponent.RSButtonMaterialIconTwo btnReporteMontoTotal;
+    private RSMaterialComponent.RSTextFieldTwo inputMonto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFechaFin;
     private javax.swing.JLabel lblFechaInicio;
     private RSMaterialComponent.RSTableMetro rSTableMetro1;
-    private RSMaterialComponent.RSTextFieldTwo rSTextFieldTwo1;
     // End of variables declaration//GEN-END:variables
 }
