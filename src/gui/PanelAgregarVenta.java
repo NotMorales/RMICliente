@@ -108,6 +108,8 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
         btnCrearVenta = new RSMaterialComponent.RSButtonMaterialOne();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(626, 474));
+        setName(""); // NOI18N
 
         inputFolio.setForeground(new java.awt.Color(0, 0, 0));
         inputFolio.setToolTipText("Ingrese un número que sera el folio de la venta");
