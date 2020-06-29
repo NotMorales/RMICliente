@@ -31,7 +31,7 @@
                   </Group>
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" alignment="1" pref="606" max="32767" attributes="0"/>
-                  <Component id="rSButtonMaterialOne1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnCrearVenta" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -50,7 +50,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="rSButtonMaterialOne1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnCrearVenta" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -323,7 +323,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="RSMaterialComponent.RSButtonMaterialOne" name="rSButtonMaterialOne1">
+    <Component class="RSMaterialComponent.RSButtonMaterialOne" name="btnCrearVenta">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f6" green="b5" red="64" type="rgb"/>
@@ -338,7 +338,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonMaterialOne1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearVentaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -1,6 +1,8 @@
 
 package gui;
 
+import Interfaces.IDetalleVenta;
+import Interfaces.IDetalleVentaController;
 import Interfaces.IProducto;
 import Interfaces.IVenta;
 import Interfaces.IVentaController;
@@ -68,11 +70,11 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
             }
             
             Vector<String> columnas = new Vector<>();
-            columnas.add("productoId");
-            columnas.add("codigo");
-            columnas.add("marca");
-            columnas.add("nombre");
-            columnas.add("precio");
+            columnas.add("ProductoId");
+            columnas.add("Codigo");
+            columnas.add("Marca");
+            columnas.add("Nombre");
+            columnas.add("Precio");
             tablaProductos.setModel( new DefaultTableModel(datos, columnas));
         } catch (RemoteException ex) {
             Logger.getLogger(PanelAgregarVenta.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,7 +105,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
         btnRestarContador = new RSMaterialComponent.RSButtonIconOne();
         btnSumarContador = new RSMaterialComponent.RSButtonIconOne();
         inputContador = new javax.swing.JTextField();
-        rSButtonMaterialOne1 = new RSMaterialComponent.RSButtonMaterialOne();
+        btnCrearVenta = new RSMaterialComponent.RSButtonMaterialOne();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -265,14 +267,14 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        rSButtonMaterialOne1.setBackground(new java.awt.Color(100, 181, 246));
-        rSButtonMaterialOne1.setText("Confirmar Venta");
-        rSButtonMaterialOne1.setToolTipText("");
-        rSButtonMaterialOne1.setBackgroundHover(new java.awt.Color(100, 157, 249));
-        rSButtonMaterialOne1.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
-        rSButtonMaterialOne1.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearVenta.setBackground(new java.awt.Color(100, 181, 246));
+        btnCrearVenta.setText("Confirmar Venta");
+        btnCrearVenta.setToolTipText("");
+        btnCrearVenta.setBackgroundHover(new java.awt.Color(100, 157, 249));
+        btnCrearVenta.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
+        btnCrearVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMaterialOne1ActionPerformed(evt);
+                btnCrearVentaActionPerformed(evt);
             }
         });
 
@@ -289,7 +291,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
                         .addComponent(inputFolio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
-                    .addComponent(rSButtonMaterialOne1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCrearVenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -304,7 +306,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rSButtonMaterialOne1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCrearVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -328,7 +330,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
         actualizarPrecios();
     }//GEN-LAST:event_btnRestarContadorActionPerformed
 
-    private void rSButtonMaterialOne1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMaterialOne1ActionPerformed
+    private void btnCrearVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearVentaActionPerformed
         try {
             //System.out.println( Integer.parseInt( inputFolio.getText() ) );
             
@@ -348,18 +350,24 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
                 venta.setIva(IVA);
                 venta.setSubTotal(SUBTOTAL);
                 venta.setTotal(TOTAL);
-                int ventaid = VENTAID;
-                venta.setVentaId( ventaid );
+                venta.setVentaId( VENTAID );
                 
                 int resp = RMI.getIVentaController().add(venta);
-                if( resp == IVentaController.ADD_EXITO ){
+                //creamos el detalleVenta
+                int resp2 = setDetalleVenta( venta );
+                
+                if( resp == IVentaController.ADD_EXITO &&
+                    resp2 == IDetalleVentaController.ADD_EXITO){
                         JOptionPane.showMessageDialog(
                         this, 
                         "Venta agregada con éxito.",
                         "Operacion exitosa",
                         JOptionPane.INFORMATION_MESSAGE);
                 dialogParent.dispose();
-                }else if( resp == IVentaController.ADD_SIN_EXITO ){
+                refrescarTabla();
+                
+                }else if( resp == IVentaController.ADD_SIN_EXITO ||
+                          resp2 == IDetalleVentaController.ADD_SIN_EXITO){
                         JOptionPane.showMessageDialog(
                         this, 
                         "No fue posible completar la operación",
@@ -370,9 +378,28 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
         } catch (RemoteException ex) {
             Logger.getLogger(PanelAgregarVenta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }//GEN-LAST:event_rSButtonMaterialOne1ActionPerformed
+    }//GEN-LAST:event_btnCrearVentaActionPerformed
 
+    public int setDetalleVenta(IVenta venta){
+        int respuesta = 0;
+        try {
+            IDetalleVenta detalle = RMI.getIDetalleVentaController().newInstance();
+            
+            detalle.setDetalleVentaId(VENTAID);
+            detalle.setProductoId(PRODUCTO.getProductoId());
+            detalle.setVentaId(VENTAID);
+            detalle.setUnidades(CONTADOR);
+            detalle.setPrecioUnidad(PRODUCTO.getPrecio());
+            detalle.setTotal(TOTAL);
+            
+            respuesta = RMI.getIDetalleVentaController().add(detalle);
+            
+        } catch (RemoteException ex) {
+            Logger.getLogger(PanelAgregarVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            return respuesta;
+        }
+    }
     private void actualizarPrecios(){
         try {
             SUBTOTAL = CONTADOR * PRODUCTO.getPrecio();
@@ -410,6 +437,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private RSMaterialComponent.RSButtonMaterialOne btnCrearVenta;
     private RSMaterialComponent.RSButtonIconOne btnRestarContador;
     private RSMaterialComponent.RSButtonIconOne btnSumarContador;
     private javax.swing.JTextField inputContador;
@@ -424,7 +452,6 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private RSMaterialComponent.RSButtonMaterialOne rSButtonMaterialOne1;
     private RSMaterialComponent.RSTableMetro tablaProductos;
     // End of variables declaration//GEN-END:variables
 }

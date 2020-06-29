@@ -1,5 +1,6 @@
 package proyectormicliente;
 
+import Interfaces.IDetalleVentaController;
 import Interfaces.IProductoController;
 import Interfaces.IVentaController;
 import java.net.MalformedURLException;
@@ -12,6 +13,7 @@ import java.util.logging.Logger;
 public class RMI {
     private static IProductoController productoController;
     private static IVentaController ventaController;
+    private static IDetalleVentaController detalleVentaController;
     
     public static IProductoController getIProductoController(){
         try {
@@ -41,5 +43,20 @@ public class RMI {
             }
         }
         return ventaController;
+    }
+    
+    public static IDetalleVentaController getIDetalleVentaController(){
+        if( detalleVentaController == null){
+            try {
+                detalleVentaController = (IDetalleVentaController) Naming.lookup("rmi://localhost/DetalleVentaController");
+            } catch (NotBoundException ex) {
+                Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (RemoteException ex) {
+                Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return detalleVentaController;
     }
 }
