@@ -21,6 +21,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
 
     private JDialog dialogParent;
     private IProducto PRODUCTO = null;
+    private int VENTAID;
     private double SUBTOTAL;
     private double IVA; 
     private double TOTAL;
@@ -31,9 +32,21 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
     public PanelAgregarVenta(JDialog dialogParent){
         initComponents();
         this.dialogParent = dialogParent;
-        inputFolio.setText("01");
+        setFolioyVenta();
         inputContador.setText(String.valueOf(CONTADOR));
         refrescarTabla();
+    }
+    
+    public void setFolioyVenta(){
+        int numVentas;
+        try {
+            numVentas = RMI.getIVentaController().getNumVentas() + 1;
+            //Obtenemos el numero de ventas y le sumamos uno al total
+            VENTAID = numVentas;
+            inputFolio.setText( "10" + String.valueOf(numVentas) );
+        } catch (RemoteException ex) {
+            Logger.getLogger(PanelAgregarVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void refrescarTabla(){
@@ -317,7 +330,7 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
 
     private void rSButtonMaterialOne1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMaterialOne1ActionPerformed
         try {
-            System.out.println( Integer.parseInt( inputFolio.getText() ) );
+            //System.out.println( Integer.parseInt( inputFolio.getText() ) );
             
             IVenta venta = RMI.getIVentaController().newInstance();
             
@@ -335,8 +348,8 @@ public class PanelAgregarVenta extends javax.swing.JPanel {
                 venta.setIva(IVA);
                 venta.setSubTotal(SUBTOTAL);
                 venta.setTotal(TOTAL);
-                int VENTAID = Integer.parseInt("10" + String.valueOf(PRODUCTO.getProductoId()));
-                venta.setVentaId( VENTAID );
+                int ventaid = VENTAID;
+                venta.setVentaId( ventaid );
                 
                 int resp = RMI.getIVentaController().add(venta);
                 if( resp == IVentaController.ADD_EXITO ){

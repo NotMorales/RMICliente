@@ -37,7 +37,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="rSButtonMaterialIconTwo1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rSButtonMaterialIconTwo2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCancelarVenta" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -58,7 +58,7 @@
               <EmptySpace pref="59" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="rSButtonMaterialIconTwo1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rSButtonMaterialIconTwo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCancelarVenta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
@@ -92,7 +92,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="RSMaterialComponent.RSTableMetro" name="rSTableMetro1">
+        <Component class="RSMaterialComponent.RSTableMetro" name="tablaVentas">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -157,7 +157,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonMaterialIconTwo1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="RSMaterialComponent.RSButtonMaterialIconTwo" name="rSButtonMaterialIconTwo2">
+    <Component class="RSMaterialComponent.RSButtonMaterialIconTwo" name="btnCancelarVenta">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="ff" type="rgb"/>
@@ -173,6 +173,9 @@
           <Value id="CANCEL"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarVentaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

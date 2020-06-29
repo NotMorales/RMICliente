@@ -11,8 +11,10 @@ public interface IVentaController extends Remote {
     int delete (IVenta venta) throws RemoteException;
     int delete(int ventaId) throws RemoteException;
     List<IVenta> list() throws RemoteException;
-    IVenta findOne(int ventaId) throws RemoteException;
+    IVenta findOne(int ventaid) throws RemoteException;
     List<IVenta> find(IVenta venta) throws RemoteException;
+    int getNumVentas() throws RemoteException;
+    int cancelarVenta(int ventaId) throws RemoteException;
     
     int ADD_EXITO               = 1;
     int ADD_ID_DUPLICADO        = 2;

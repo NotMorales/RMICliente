@@ -31,7 +31,7 @@ public class RMI {
     public static IVentaController getIVentaController(){
         if( ventaController == null){
             try {
-                ventaController = (IVentaController) Naming.lookup("rmi://localhost/ProductoController");
+                ventaController = (IVentaController) Naming.lookup("rmi://localhost/VentaController");
             } catch (NotBoundException ex) {
                 Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
             } catch (MalformedURLException ex) {

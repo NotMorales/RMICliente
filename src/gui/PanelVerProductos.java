@@ -21,8 +21,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
     
     public PanelVerProductos() {
         initComponents();
-        refrescarTabla();
-        
+        refrescarTabla(); 
     }
     
     public void refrescarTabla(){
@@ -81,11 +80,11 @@ public class PanelVerProductos extends javax.swing.JPanel {
             }
             
             Vector<String> columnas = new Vector<>();
-            columnas.add("productoId");
-            columnas.add("codigo");
-            columnas.add("marca");
-            columnas.add("nombre");
-            columnas.add("precio");
+            columnas.add("ProductoId");
+            columnas.add("Codigo");
+            columnas.add("Marca");
+            columnas.add("Nombre");
+            columnas.add("Precio");
             productosTable.setModel( new DefaultTableModel( datos, columnas ) );
         } catch (RemoteException ex) {
             Logger.getLogger(PanelVerProductos.class.getName()).log(Level.SEVERE, null, ex);
