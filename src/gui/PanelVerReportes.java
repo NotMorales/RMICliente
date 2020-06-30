@@ -43,14 +43,25 @@ public class PanelVerReportes extends javax.swing.JPanel {
         List<Map<String,Object>> lista;
         
         try {
+            Vector<Vector> datos = new Vector<>();
             lista = RMI.getIDetalleVentaController().getProductosVendidos(FECHAS);
+            
             for (Map<String, Object> map : lista) {
+                Vector registro = new Vector();
+                
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     String key = entry.getKey();
                     Object value = entry.getValue();
-                    System.out.println(key + " = " + value);
+                    
+                    registro.add(value);
                 }
+                datos.add(registro);
             }
+            Vector<String> columnas = new Vector<>();
+            columnas.add("Fecha");
+            columnas.add("Cantidad");
+            columnas.add("Nombre");
+            tablaReportes.setModel( new DefaultTableModel( datos,columnas ) );
         } catch (RemoteException ex) {
             Logger.getLogger(PanelVerReportes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -99,7 +110,7 @@ public class PanelVerReportes extends javax.swing.JPanel {
         lblFechaFin = new javax.swing.JLabel();
         btnReporteMontoTotal = new RSMaterialComponent.RSButtonMaterialIconTwo();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new RSMaterialComponent.RSTableMetro();
+        tablaReportes = new RSMaterialComponent.RSTableMetro();
         inputMonto = new RSMaterialComponent.RSTextFieldTwo();
         jLabel1 = new javax.swing.JLabel();
 
@@ -133,7 +144,7 @@ public class PanelVerReportes extends javax.swing.JPanel {
             }
         });
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaReportes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -144,13 +155,13 @@ public class PanelVerReportes extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        rSTableMetro1.setBackgoundHead(new java.awt.Color(100, 158, 253));
-        rSTableMetro1.setBackgoundHover(new java.awt.Color(100, 158, 253));
-        rSTableMetro1.setColorBorderHead(new java.awt.Color(255, 255, 255));
-        rSTableMetro1.setColorBorderRows(new java.awt.Color(255, 255, 255));
-        rSTableMetro1.setColorPrimaryText(new java.awt.Color(51, 51, 51));
-        rSTableMetro1.setColorSecundaryText(new java.awt.Color(0, 0, 0));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tablaReportes.setBackgoundHead(new java.awt.Color(100, 158, 253));
+        tablaReportes.setBackgoundHover(new java.awt.Color(100, 158, 253));
+        tablaReportes.setColorBorderHead(new java.awt.Color(255, 255, 255));
+        tablaReportes.setColorBorderRows(new java.awt.Color(255, 255, 255));
+        tablaReportes.setColorPrimaryText(new java.awt.Color(51, 51, 51));
+        tablaReportes.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setViewportView(tablaReportes);
 
         inputMonto.setForeground(new java.awt.Color(0, 51, 0));
         inputMonto.setBorderColor(new java.awt.Color(153, 153, 153));
@@ -226,6 +237,6 @@ public class PanelVerReportes extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFechaFin;
     private javax.swing.JLabel lblFechaInicio;
-    private RSMaterialComponent.RSTableMetro rSTableMetro1;
+    private RSMaterialComponent.RSTableMetro tablaReportes;
     // End of variables declaration//GEN-END:variables
 }

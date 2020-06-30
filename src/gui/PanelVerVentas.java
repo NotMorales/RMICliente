@@ -17,6 +17,7 @@ import proyectormicliente.RMI;
 
 public class PanelVerVentas extends javax.swing.JPanel {
     
+    private DecimalFormat df = new DecimalFormat("#.00");
     public PanelVerVentas() {
         initComponents();
         refrescarTabla();
@@ -56,7 +57,7 @@ public class PanelVerVentas extends javax.swing.JPanel {
                 registro.add( venta.getVentaId());
                 registro.add( venta.getFolio());
                 registro.add( venta.getSubTotal());
-                registro.add( venta.getIva());
+                registro.add( df.format( venta.getIva() ) );
                 registro.add( venta.getTotal() );
                 registro.add( venta.getFecha() );
                 registro.add( devolverEstado(venta.getEstado()) );
