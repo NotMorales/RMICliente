@@ -10,10 +10,11 @@ import javax.swing.border.LineBorder;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-    private Component[] paneles;
     private PanelVerProductos panelVerProductos = new PanelVerProductos();
     private PanelVerVentas panelVerVentas = new PanelVerVentas();
     private PanelVerReportes panelVerReportes = new PanelVerReportes();
+    private PanelIp panelIp = new PanelIp();
+    private Component panelActual = panelVerProductos;
     
     public VentanaPrincipal() {
         initComponents();
@@ -21,18 +22,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelCentral.add(panelVerProductos);
         panelCentral.add(panelVerVentas);
         panelCentral.add(panelVerReportes);
-        paneles = panelCentral.getComponents();
-        
+        panelCentral.add(panelIp);
+        panelActual.setVisible(true);
     }
     
     public void cambiarPanel(JPanel panel){
-        for (Component jp : paneles) {
-            if( jp.getName().equals( panel.getName() ) ){
-                jp.setVisible(true);
-            }else{
-                jp.setVisible(false);
-            }
-        }
+        panelActual.setVisible(false);
+        panelActual = panel;
+        panelActual.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -44,6 +41,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnProductos = new RSMaterialComponent.RSButtonMaterialOne();
         btnVenta = new RSMaterialComponent.RSButtonMaterialOne();
         btnReportes = new RSMaterialComponent.RSButtonMaterialOne();
+        btnIp = new RSMaterialComponent.RSButtonMaterialOne();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cliente RMI");
@@ -84,6 +82,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnIp.setBackground(new java.awt.Color(100, 181, 246));
+        btnIp.setText("IP");
+        btnIp.setBackgroundHover(new java.awt.Color(99, 164, 255));
+        btnIp.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
+        btnIp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,6 +99,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
             .addComponent(btnVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnIp, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +113,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnIp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
@@ -121,6 +135,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cambiarPanel(panelVerReportes);
     }//GEN-LAST:event_btnReportesActionPerformed
 
+    private void btnIpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIpActionPerformed
+        cambiarPanel(panelIp);
+    }//GEN-LAST:event_btnIpActionPerformed
+
     public static void main(String args[]) {
          java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -133,6 +151,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private RSMaterialComponent.RSButtonMaterialOne btnIp;
     private RSMaterialComponent.RSButtonMaterialOne btnProductos;
     private RSMaterialComponent.RSButtonMaterialOne btnReportes;
     private RSMaterialComponent.RSButtonMaterialOne btnVenta;
