@@ -1,14 +1,14 @@
 package gui;
 
-import Interfaces.IVenta;
+import Interfaces.IProducto;
 import java.rmi.RemoteException;
 
-public class DialogVerVenta extends javax.swing.JDialog {
+public class DialogVerProducto extends javax.swing.JDialog {
 
-    public DialogVerVenta(java.awt.Frame parent, boolean modal, IVenta venta) throws RemoteException {
+    public DialogVerProducto(java.awt.Frame parent, boolean modal, IProducto producto) throws RemoteException {
         super(parent, modal);   
         initComponents();
-        getContentPane().add( new PanelVerVenta(this, venta) );
+        getContentPane().add( new PanelVerProducto(this, producto) );
     }
 
     @SuppressWarnings("unchecked")
@@ -16,9 +16,7 @@ public class DialogVerVenta extends javax.swing.JDialog {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(650, 450));
-        setMinimumSize(new java.awt.Dimension(650, 450));
-        setPreferredSize(new java.awt.Dimension(650, 450));
+        setMinimumSize(new java.awt.Dimension(350, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

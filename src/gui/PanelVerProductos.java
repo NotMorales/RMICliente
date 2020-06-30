@@ -108,6 +108,7 @@ public class PanelVerProductos extends javax.swing.JPanel {
         agregarButton = new RSMaterialComponent.RSButtonMaterialIconTwo();
         rSButtonMaterialIconTwo1 = new RSMaterialComponent.RSButtonMaterialIconTwo();
         rSButtonMaterialIconTwo2 = new RSMaterialComponent.RSButtonMaterialIconTwo();
+        btnVerProducto = new RSMaterialComponent.RSButtonMaterialIconTwo();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setName("PanelVerProductos"); // NOI18N
@@ -197,6 +198,17 @@ public class PanelVerProductos extends javax.swing.JPanel {
             }
         });
 
+        btnVerProducto.setBackground(new java.awt.Color(0, 255, 0));
+        btnVerProducto.setText("Ver");
+        btnVerProducto.setBackgroundHover(new java.awt.Color(100, 163, 255));
+        btnVerProducto.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
+        btnVerProducto.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.VISIBILITY);
+        btnVerProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -215,8 +227,10 @@ public class PanelVerProductos extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVerProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -234,7 +248,9 @@ public class PanelVerProductos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(rSButtonMaterialIconTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(agregarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVerProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -335,9 +351,38 @@ public class PanelVerProductos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_rSButtonMaterialIconTwo2ActionPerformed
 
+    private void btnVerProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerProductoActionPerformed
+        try {
+            int filaSeleccionada = productosTable.getSelectedRow();
+            if( filaSeleccionada == -1 ){
+                return;
+            }
+            
+            int idProducto = (Integer) productosTable.getValueAt(filaSeleccionada, 0);
+            IProducto producto = RMI.getIProductoController().findOne( idProducto );
+            if( producto.getProductoId() == 0 ){
+                JOptionPane.showMessageDialog(this, 
+                        "Producto no encontrado\n"
+                                + "Es probable que el producto haya sido eliminada previamente.", 
+                        "Producto no encontrado.",
+                        JOptionPane.ERROR_MESSAGE);
+                refrescarTabla();
+                return;
+            }
+            
+            DialogVerProducto dialogVerProducto = new DialogVerProducto(null, true, producto);
+            dialogVerProducto.setLocationRelativeTo(this);
+            dialogVerProducto.setVisible(true);
+            
+        } catch (RemoteException ex) {
+            Logger.getLogger(PanelVerProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnVerProductoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonMaterialIconTwo agregarButton;
+    private RSMaterialComponent.RSButtonMaterialIconTwo btnVerProducto;
     private RSMaterialComponent.RSButtonIconTwo buscarButton;
     private RSMaterialComponent.RSTextFieldMaterial buscarTextField;
     private RSMaterialComponent.RSComboBoxMaterial columnasComboBox;

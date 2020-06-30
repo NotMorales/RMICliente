@@ -193,7 +193,7 @@ public class PanelVerVentas extends javax.swing.JPanel {
                     .addComponent(inputBuscarFolio, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                     .addComponent(rSButtonIconTwo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rSButtonMaterialIconTwo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,13 +292,10 @@ public class PanelVerVentas extends javax.swing.JPanel {
                 refrescarTabla();
                 return;
             }
-            /*
-            DialogModificarProducto dialogModificarProducto = new DialogModificarProducto(null, true, producto);
-            dialogModificarProducto.setLocationRelativeTo(this);
-            dialogModificarProducto.setVisible(true);
-            */
-            //Regrescar tabla
-            refrescarTabla();
+            
+            DialogVerVenta dialogVerVenta = new DialogVerVenta(null, true, venta);
+            dialogVerVenta.setLocationRelativeTo(this);
+            dialogVerVenta.setVisible(true);
             
         } catch (RemoteException ex) {
             Logger.getLogger(PanelVerProductos.class.getName()).log(Level.SEVERE, null, ex);
