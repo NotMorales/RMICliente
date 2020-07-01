@@ -49,24 +49,28 @@ public class PanelVerProducto extends javax.swing.JPanel {
 
         CodigoTextField.setForeground(new java.awt.Color(0, 0, 0));
         CodigoTextField.setBorderColor(new java.awt.Color(100, 163, 252));
+        CodigoTextField.setEnabled(false);
         CodigoTextField.setPhColor(new java.awt.Color(100, 163, 252));
         CodigoTextField.setPlaceholder("codigo");
         CodigoTextField.setSelectionColor(new java.awt.Color(100, 163, 252));
 
         marcaTextField.setForeground(new java.awt.Color(0, 0, 0));
         marcaTextField.setBorderColor(new java.awt.Color(100, 163, 252));
+        marcaTextField.setEnabled(false);
         marcaTextField.setPhColor(new java.awt.Color(100, 163, 252));
         marcaTextField.setPlaceholder("marca");
         marcaTextField.setSelectionColor(new java.awt.Color(100, 163, 252));
 
         nombreTextField.setForeground(new java.awt.Color(0, 0, 0));
         nombreTextField.setBorderColor(new java.awt.Color(100, 163, 252));
+        nombreTextField.setEnabled(false);
         nombreTextField.setPhColor(new java.awt.Color(100, 163, 252));
         nombreTextField.setPlaceholder("nombre");
         nombreTextField.setSelectionColor(new java.awt.Color(100, 163, 252));
 
         precioTextField.setForeground(new java.awt.Color(0, 0, 0));
         precioTextField.setBorderColor(new java.awt.Color(100, 163, 252));
+        precioTextField.setEnabled(false);
         precioTextField.setPhColor(new java.awt.Color(100, 163, 252));
         precioTextField.setPlaceholder("precio");
         precioTextField.setSelectionColor(new java.awt.Color(100, 163, 252));

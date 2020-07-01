@@ -30,12 +30,12 @@ public class PanelVerVenta extends javax.swing.JPanel {
     
     public void mostrarInformacion(IVenta venta){
         try {
-            inputFolio.setText( String.valueOf( venta.getFolio() ) );
-            inputSubtotal.setText( String.valueOf( venta.getSubTotal()) );
-            inputIVA.setText( String.valueOf( df.format( venta.getIva())) );
-            inputTOTAL.setText( String.valueOf( venta.getTotal()) );
+            inputFolio.setText(    String.valueOf( venta.getFolio() ) );
+            inputSubtotal.setText( String.valueOf( df.format( venta.getSubTotal())) );
+            inputIVA.setText(      String.valueOf( df.format( venta.getIva())) );
+            inputTOTAL.setText(    String.valueOf( df.format( venta.getTotal())) );
             this.detalleVenta = RMI.getIDetalleVentaController().findOne( venta.getVentaId() );
-            this.producto = RMI.getIProductoController().findOne( detalleVenta.getProductoId() );
+            this.producto =     RMI.getIProductoController().findOne( detalleVenta.getProductoId() );
             refrescarTabla();
         } catch (RemoteException ex) {
             Logger.getLogger(PanelVerVenta.class.getName()).log(Level.SEVERE, null, ex);
@@ -51,7 +51,7 @@ public class PanelVerVenta extends javax.swing.JPanel {
             registro.add( detalleVenta.getUnidades() );
             registro.add( producto.getNombre() );
             registro.add( detalleVenta.getPrecioUnidad());
-            registro.add( detalleVenta.getTotal());
+            registro.add( df.format( detalleVenta.getTotal()) );
             datos.add( registro );
             
             Vector<String> columnas = new Vector<>();

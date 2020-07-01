@@ -56,9 +56,9 @@ public class PanelVerVentas extends javax.swing.JPanel {
                 Vector registro = new Vector();
                 registro.add( venta.getVentaId());
                 registro.add( venta.getFolio());
-                registro.add( venta.getSubTotal());
-                registro.add( df.format( venta.getIva() ) );
-                registro.add( venta.getTotal() );
+                registro.add( df.format( venta.getSubTotal()) );
+                registro.add( df.format( venta.getIva()) );
+                registro.add( df.format( venta.getTotal() ) );
                 registro.add( venta.getFecha() );
                 registro.add( devolverEstado(venta.getEstado()) );
                 

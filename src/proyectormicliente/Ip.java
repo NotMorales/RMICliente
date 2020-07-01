@@ -9,7 +9,8 @@ import javax.swing.JOptionPane;
 
 public class Ip {
     private static String IP = "";
-    private static String Ruta = "C:\\Users\\Luisa\\OneDrive\\Documentos\\NetBeansProjects\\archivoIp.txt";
+    //private static String Ruta = "C:\\Users\\Luisa\\OneDrive\\Documentos\\NetBeansProjects\\archivoIp.txt";
+    private static String Ruta = "C:\\Users\\luis2\\Documents\\NetBeansProjects\\archivoIp.txt";
     private Ip(){
         IP = leerIP();
     }
