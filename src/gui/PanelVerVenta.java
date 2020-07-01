@@ -4,6 +4,7 @@ import Interfaces.IDetalleVenta;
 import Interfaces.IProducto;
 import Interfaces.IVenta;
 import java.rmi.RemoteException;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -18,6 +19,7 @@ public class PanelVerVenta extends javax.swing.JPanel {
     private final IVenta venta;
     private IDetalleVenta detalleVenta;
     private IProducto producto;
+    private DecimalFormat df = new DecimalFormat("#.00");
     
     public PanelVerVenta(JDialog dialogParent, IVenta venta){
         initComponents();
@@ -30,7 +32,7 @@ public class PanelVerVenta extends javax.swing.JPanel {
         try {
             inputFolio.setText( String.valueOf( venta.getFolio() ) );
             inputSubtotal.setText( String.valueOf( venta.getSubTotal()) );
-            inputIVA.setText( String.valueOf( venta.getIva()) );
+            inputIVA.setText( String.valueOf( df.format( venta.getIva())) );
             inputTOTAL.setText( String.valueOf( venta.getTotal()) );
             this.detalleVenta = RMI.getIDetalleVentaController().findOne( venta.getVentaId() );
             this.producto = RMI.getIProductoController().findOne( detalleVenta.getProductoId() );

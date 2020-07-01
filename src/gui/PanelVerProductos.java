@@ -198,9 +198,9 @@ public class PanelVerProductos extends javax.swing.JPanel {
             }
         });
 
-        btnVerProducto.setBackground(new java.awt.Color(0, 255, 0));
+        btnVerProducto.setBackground(new java.awt.Color(0, 204, 0));
         btnVerProducto.setText("Ver");
-        btnVerProducto.setBackgroundHover(new java.awt.Color(100, 163, 255));
+        btnVerProducto.setBackgroundHover(new java.awt.Color(0, 151, 32));
         btnVerProducto.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         btnVerProducto.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.VISIBILITY);
         btnVerProducto.addActionListener(new java.awt.event.ActionListener() {

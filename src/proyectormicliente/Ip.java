@@ -23,7 +23,8 @@ public class Ip {
         BufferedReader br = null;
 
         try {
-            archivo = new File ("C:\\Users\\Luisa\\OneDrive\\Documentos\\NetBeansProjects\\RMICliente30\\leer.txt");
+            //archivo = new File ("C:\\Users\\Luisa\\OneDrive\\Documentos\\NetBeansProjects\\RMICliente30\\leer.txt");
+            archivo = new File ("C:\\Users\\luis2\\Documents\\NetBeansProjects\\ProyectoRMICliente\\leer.txt");
             fr = new FileReader (archivo);
             br = new BufferedReader(fr);
 

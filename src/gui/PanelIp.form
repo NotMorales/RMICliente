@@ -130,11 +130,11 @@
     <Component class="RSMaterialComponent.RSButtonMaterialIconTwo" name="btnGuardar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="ff" type="rgb"/>
+          <Color blue="0" green="cc" red="33" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Guardar nueva Ip"/>
         <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f7" green="a4" red="64" type="rgb"/>
+          <Color blue="17" green="85" red="33" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Bold" size="16" style="1"/>

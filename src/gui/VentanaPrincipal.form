@@ -54,11 +54,7 @@
               <Component id="btnProductos" alignment="0" pref="137" max="32767" attributes="0"/>
               <Component id="btnVenta" alignment="0" pref="0" max="32767" attributes="0"/>
               <Component id="btnReportes" alignment="0" pref="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnIp" pref="0" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
+              <Component id="btnIp" alignment="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

@@ -21,6 +21,15 @@ public class PanelVerReportes extends javax.swing.JPanel {
     private String[] FECHAS = new String[2];
     public PanelVerReportes() {
         initComponents();
+        formatoTabla();
+    }
+    
+    public void formatoTabla(){
+        Vector<String> columnas = new Vector<>();
+        columnas.add("Fecha");
+        columnas.add("Cantidad");
+        columnas.add("Nombre");
+        tablaReportes.setModel( new DefaultTableModel( null,columnas ) );
     }
     
     public void setFechas(){

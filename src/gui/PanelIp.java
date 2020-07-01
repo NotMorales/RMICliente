@@ -56,9 +56,9 @@ public final class PanelIp extends javax.swing.JPanel {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(255, 51, 51));
+        btnGuardar.setBackground(new java.awt.Color(51, 204, 0));
         btnGuardar.setText("Guardar nueva Ip");
-        btnGuardar.setBackgroundHover(new java.awt.Color(100, 164, 247));
+        btnGuardar.setBackgroundHover(new java.awt.Color(51, 133, 23));
         btnGuardar.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
         btnGuardar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.SAVE);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,8 +135,6 @@ public final class PanelIp extends javax.swing.JPanel {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private RSMaterialComponent.RSButtonMaterialIconTwo agregarButton;
-    private RSMaterialComponent.RSButtonMaterialIconTwo agregarButton1;
     private RSMaterialComponent.RSButtonMaterialIconTwo btnGuardar;
     private RSMaterialComponent.RSTextFieldTwo inputIpActual;
     private RSMaterialComponent.RSTextFieldTwo inputIpNueva;

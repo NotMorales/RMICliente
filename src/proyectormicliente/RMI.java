@@ -18,7 +18,7 @@ public class RMI {
     public static IProductoController getIProductoController(){
         try {
             if ( productoController == null ){
-                productoController = (IProductoController) Naming.lookup("rmi://localhost/ProductoController");
+                productoController = (IProductoController) Naming.lookup("rmi://" + Ip.getIp() + "/ProductoController");
             }
         } catch (NotBoundException ex) {
             Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
