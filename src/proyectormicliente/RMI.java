@@ -3,6 +3,7 @@ package proyectormicliente;
 import Interfaces.IDetalleVentaController;
 import Interfaces.IProductoController;
 import Interfaces.IVentaController;
+import gui.VentanaPrincipal;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -23,7 +24,7 @@ public class RMI {
         } catch (NotBoundException ex) {
             Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+            Ip.errorInicio();
         } catch (RemoteException ex) {
             Ip.errorInicio();
         }
@@ -33,13 +34,13 @@ public class RMI {
     public static IVentaController getIVentaController(){
         if( ventaController == null){
             try {
-                ventaController = (IVentaController) Naming.lookup("rmi://localhost/VentaController");
+                ventaController = (IVentaController) Naming.lookup("rmi://" + Ip.getIp() + "/VentaController");
             } catch (NotBoundException ex) {
                 Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
             } catch (MalformedURLException ex) {
-                Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+                Ip.errorInicio();
             } catch (RemoteException ex) {
-                Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+                Ip.errorInicio();
             }
         }
         return ventaController;
@@ -48,13 +49,13 @@ public class RMI {
     public static IDetalleVentaController getIDetalleVentaController(){
         if( detalleVentaController == null){
             try {
-                detalleVentaController = (IDetalleVentaController) Naming.lookup("rmi://localhost/DetalleVentaController");
+                detalleVentaController = (IDetalleVentaController) Naming.lookup("rmi://" + Ip.getIp() + "/DetalleVentaController");
             } catch (NotBoundException ex) {
                 Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
             } catch (MalformedURLException ex) {
-                Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+                Ip.errorInicio();
             } catch (RemoteException ex) {
-                Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+                Ip.errorInicio();
             }
         }
         return detalleVentaController;

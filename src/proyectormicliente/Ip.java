@@ -83,7 +83,8 @@ public class Ip {
                 BufferedWriter bw = new BufferedWriter(fw);
                 bw.write(IpNueva);
                 bw.close();
-            
+                JOptionPane.showMessageDialog(null, "Favor de abrir el sistema de nuevo!", "Reiniciar sistema", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
         } catch (Exception e) {
             e.printStackTrace();
         }

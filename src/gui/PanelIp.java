@@ -132,6 +132,7 @@ public final class PanelIp extends javax.swing.JPanel {
             inputIpNueva.requestFocus();
             return;
         }
+        Ip.cambiarIp(Val);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
