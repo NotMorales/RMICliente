@@ -25,7 +25,7 @@ public class RMI {
         } catch (MalformedURLException ex) {
             Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (RemoteException ex) {
-            Logger.getLogger(RMI.class.getName()).log(Level.SEVERE, null, ex);
+            Ip.errorInicio();
         }
         return productoController;
     }
