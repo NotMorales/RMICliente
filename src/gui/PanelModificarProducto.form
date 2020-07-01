@@ -36,19 +36,12 @@
                           <Component id="nombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="preciolLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="precioTextField" pref="300" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nombreTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="CodigoTextField" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="marcaTextField" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="precioTextField" alignment="0" pref="300" max="32767" attributes="0"/>
+                          <Component id="nombreTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="CodigoTextField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="marcaTextField" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

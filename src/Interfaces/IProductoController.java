@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface IProductoController extends Remote{
+public interface IProductoController extends Remote {
     IProducto newInstance() throws RemoteException;
     int add(IProducto producto) throws RemoteException;
     int update(IProducto producto) throws RemoteException;
@@ -12,6 +12,7 @@ public interface IProductoController extends Remote{
     int delete(int productoId) throws RemoteException;
     List<IProducto> list() throws RemoteException;
     IProducto findOne(int productoId) throws RemoteException;
+    IProducto findOneCodigo(int codigo) throws RemoteException;
     List<IProducto> find(IProducto producto) throws RemoteException;
     
     int ADD_EXITO               = 1;

@@ -184,6 +184,12 @@ public class PanelAgregarProducto extends javax.swing.JPanel {
                         "No fue posible completar la operación",
                         "Operación no completada",
                         JOptionPane.ERROR_MESSAGE);
+            }else if( respuesta == IProductoController.ADD_ID_DUPLICADO ){
+                JOptionPane.showMessageDialog(
+                        this, 
+                        "Este codigo ya esta registrado",
+                        "Operación no completada",
+                        JOptionPane.ERROR_MESSAGE);
             }
             
         } catch (RemoteException ex) {

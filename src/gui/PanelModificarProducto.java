@@ -226,8 +226,8 @@ public class PanelModificarProducto extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(
                         this, 
                         "No fue posible completar la operación\n" 
-                            + "Producto no encontrado.\n"
-                            + "Es probable que el producto haya sido eliminada con anterioridad.",
+                            + "Producto no encontrado o duplicado.\n"
+                            + "Es probable que el producto tome el codigo de otro producto.",
                         "Operación no completada",
                         JOptionPane.ERROR_MESSAGE);
             }else if( respuesta == IProductoController.UPDATE_ID_INEXISTE ){
